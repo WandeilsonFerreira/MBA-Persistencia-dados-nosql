@@ -10,6 +10,8 @@
 - [Sobre o MongoDB](#sobre-o-MongoDB)
 - [Atividade 01](#Atividade-01)
 - [Sobre o Neo4j](#Sobre-o-Neo4j)
+- [Atividade 02](#Atividade-02)
+
 
 ## Apresentação da disciplina 
 
@@ -562,3 +564,37 @@ Os grafos são estruturas fundamentais no banco de dados Neo4j, onde podemos des
 - Cypher que é a linguagem de consulta intuitiva do Neo4j. Ela 'desenha' o padrão que você quer encontrar no grafo.
 
 ### Criando o primeiro projeto
+
+## Atividade 02
+### Objetivo da atividade
+Realizar consultas no no Neo4j utilizando a linguagem Cypher
+
+```
+Consulta Cypher para ver os itens da base de dados: 
+
+MATCH (n) RETURN n LIMIT 25
+
+```
+
+Consulta Cypher para listar os autores de um determinado filme e descobrir outros filmes que eles também atuaram.
+Exemplo de busca: Matrix:
+
+```
+MATCH (m:Movie {title: "The Matrix"})<-[:ACTED_IN]-(a:Person)-[:ACTED_IN]->(other:Movie)
+WHERE other.title <> "The Matrix"
+RETURN a.name AS Ator, COLLECT(DISTINCT other.title) AS OutrosFilmes, COUNT(DISTINCT other) AS Total
+ORDER BY Total DESC;
+
+```
+
+Consulta Cypher que analisa quais diretores trabalharam com quais atores, e quantas vezes essa colaboração aconteceu.
+
+```
+
+MATCH (d:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(a:Person)
+RETURN d.name AS Diretor, a.name AS Ator, COUNT(m) AS FilmesJuntos
+ORDER BY FilmesJuntos DESC;
+
+```
+
+
