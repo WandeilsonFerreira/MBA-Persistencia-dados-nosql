@@ -11,6 +11,7 @@
 - [Atividade 01](#Atividade-01)
 - [Sobre o Neo4j](#Sobre-o-Neo4j)
 - [Atividade 02](#Atividade-02)
+- [Atividade 03](#Atividade-03)
 
 
 ## Apresentação da disciplina 
@@ -41,7 +42,7 @@ O MongoDB é um banco de dados NoSQL de código aberto, projetado para armazenar
 
 ### Dowload e instalação:
 
-O download pode ser feito atraves do site oficial do projeto (https://www.mongodb.com/try/download/community), onde será disponibilizada a instalaçao do MongoDB e Compass (interface grafica de gerenciamento e visualização de dados). 
+O download pode ser feito atraves do site oficial do projeto, disponível em [mongodb.com](https://www.mongodb.com/try/download/community), onde será disponibilizada a instalaçao do MongoDB e Compass (interface grafica de gerenciamento e visualização de dados). 
 
 ### Criando o primeiro projeto no MongoDB Compass
 
@@ -564,6 +565,11 @@ Os grafos são estruturas fundamentais no banco de dados Neo4j, onde podemos des
 - Cypher que é a linguagem de consulta intuitiva do Neo4j. Ela 'desenha' o padrão que você quer encontrar no grafo.
 
 ### Criando o primeiro projeto
+- Ascessando o sandbox
+- Abrindo um projeto de exemplo
+- Realizando consultas 
+- Resultado 
+
 
 ## Atividade 02
 ### Objetivo da atividade
@@ -596,5 +602,255 @@ RETURN d.name AS Diretor, a.name AS Ator, COUNT(m) AS FilmesJuntos
 ORDER BY FilmesJuntos DESC;
 
 ```
+
+## Atividade 03
+A terceira atividade da disciplina **(Porjeto final)** consiste no desenvolvimento de uma aplicação de controle de salários para uma empresa fictícia (SerGestor), integrando tecnologias modernas para gestão e visualização de dados. 
+
+Para tal, será utilizando uma base de dados que armazenada em um banco de dados MongoDB para agerenciar as informações de forma estruturada e escalável, a aplicação opera de maneira online, permitindo acesso remoto e em tempo real. 
+
+Além disso, será implementada uma conexão com o Power Bi para possibilitou a criação de dashboards interativo e análises visuais detalhadas sobre a distribuição salarial, histórico de pagamentos e indicadores financeiros, tornando o sistema uma ferramenta eficiente para tomada de decisões estratégicas.
+
+### Desenvolvimento da aplicação
+
+#### Crie uma conta no MongoDB Atlas
+   Inicialmente acesse https://www.mongodb.com/cloud/atlas e registre-se com seu e-mail ou com uma conta GitHub/Google.
+<br>
+<center>
+
+![imagem 09](./Assets/criar_conta_mongo.png)
+<figcaption>Criando uma conta no MongoDB</figcaption>
+
+</center>
+
+#### Crie um novo projeto
+  - Após o login, clique em “New Project”.
+  - Dê um nome ao projeto 
+  - Click em Next
+
+<br>
+<center>
+
+![imagem 10](./Assets/create_a_project.png)
+<figcaption>Criando um novo projeto</figcaption>
+
+</center>
+    
+  - Adicione membros (opcional).
+  - Click em Create Project
+
+<center>
+
+![imagem 11](./Assets/create_a_project2.png)
+<figcaption>Criando um novo projeto</figcaption>
+
+</center>
+    
+#### Configure um cluster
+  - Dentro do projeto, clique em +Create para cirar um cluster.
+
+<br>
+<center>
+
+![imagem 12](./Assets/new_cluester.png)
+<figcaption>Criando um novo cluster</figcaption>
+
+</center>
+   
+  - Neste ponto do projeto, precisamos escolher o plano que melhor se adequa às nossas necessidades. Como se trata de uma atividade acadêmica, optaremos pelo plano gratuito (Free), que já oferece uma série de recursos e pode ser expandido posteriormente.
+
+<br>
+<center>
+
+![imagem 13](./Assets/deploy_cluster.png)
+<figcaption>Selecionando as o cluster para a aplicação</figcaption>
+
+</center>
+
+#### Crie um usuário de banco de dados
+  - Vá em “Database Access” no menu lateral.
+  - Clique em “Add New Database User”.
+  - Defina um nome de usuário e senha.
+  - Escolha as permissões adequadas ("Read and write to any database").
+<br>
+<center>
+
+![imagem 14](./Assets/database_access.png)
+<figcaption>Criando o usuário</figcaption>
+
+</center>
+
+    
+#### Configure o acesso à rede
+  - Vá em “Network Access”.
+  - Clique em “Add IP Address”.
+  - Adicione o IP do seu computador ou selecione “Allow access from anywhere” (0.0.0.0/0).
+<br>
+<center>
+
+![imagem 15](./Assets/network_access.png)
+<figcaption>Configurando o acesso a usuarios </figcaption>
+
+</center>
+
+#### Conecte-se ao cluster
+   - Selecione novamente Cluster no painel e clique em “Connect”.
+<br>
+<center>
+
+![imagem 16](./Assets/cluster_conect.png)
+<figcaption>Configurando a conexão com o Atlas </figcaption>
+
+</center> 
+
+   - Escolha o método de conexão: via MongoDB Compass, terminal ou aplicação. 
+   - Copie a string de conexão passando as credenciais de acesso
+<br>
+<center>
+
+![imagem 17](./Assets/connect_compass.png)
+<figcaption>Configurando a conexão com o MongoDB Compass </figcaption>
+
+</center> 
+  
+  - Uma vez no MongoDB Compass crie uma nova conexão passando a URI
+
+<br>
+<center>
+
+![imagem 18](./Assets/conexao_compass.png)
+<figcaption>Conectando com o serviço onnline do MongoDB </figcaption>
+
+</center> 
+
+
+#### Criando e gerenciando bancos e coleções
+- Uma vez criada a conexão com o serviço online podemos criar nosso banco de dados e inserir as coleções, para este exemplo iremos criar o DB Empresa e importar as coleções. 
+
+<br>
+<center>
+
+![imagem 19](./Assets/create_db_collections.png)
+<figcaption>Criando o banco de dados e as coleções </figcaption>
+
+</center> 
+ 
+- importanto os dados de Funcionarios, Montante, Pagamentos e Utilização da verba. 
+
+<br>
+<center>
+
+![imagem 20](./Assets/import_dados.png)
+<figcaption>Importanto os dados </figcaption>
+
+</center> 
+
+- Uma vez que nossas coleções são importadas elas ficaram disponiveis em nosso bucket na web
+
+<br>
+<center>
+
+![imagem 21](./Assets/bucket_pronto.png)
+<figcaption>Documentos prontos no cluster </figcaption>
+
+</center> 
+
+
+### Integração com ferramentas de BI 
+
+- Para esta atividade, será realizada a integração entre o cluster do MongoDB e o Power BI utilizando o conector ODBC (Open Database Connectivity). Essa abordagem se faz necessária devido à limitação da versão gratuita do MongoDB Atlas, que não disponibiliza nativamente conectores compatíveis com ferramentas de Business Intelligence.
+
+> Para proseguir com o porjeto certifique-se que estejam preparados o Database Acess e Network Acess.
+
+- Após as configurações podemos proseguir instalando as aplicações responsavéis por fazer a conexão entre os compontentes. Precisamos fazer as instalações do [Power BI Connector](https://www.mongodb.com/try/download/odbc-driver) e [ODBC Driver](https://www.mongodb.com/try/download/odbc-driver). 
+
+- Inicialmente temos que criar a URI de conexão no cluster, para tanto basta acesssar o cluester do projeto e clicar em connect.
+
+<br>
+<center>
+
+![imagem 22](./Assets/connect.png)
+<figcaption>Criando a URI de conexão </figcaption>
+
+</center> 
+
+- Selecione ODBC Driver, escolha uma DB e copie a URL de conexão.
+
+<br>
+<center>
+
+![imagem 23](./Assets/connect_odbc.png)
+<figcaption>Criando a URL de conexão </figcaption>
+
+</center> 
+
+
+- Depois de tudo pronto e configurado podemos iniciar a configuração do ODBC no Windows.
+
+<br>
+<center>
+
+![imagem 24](./Assets/odbc.png)
+<figcaption>Iniciando o Open Database Connectivity </figcaption>
+
+</center> 
+
+- Selecione System DSN e em seguida Add, selecione o conector "MongoDB Atlas SQL ODBC Driver" e passe suas credenciais de acesso.
+
+<br>
+<center>
+
+![imagem 25](./Assets/configurando_odbc.png)
+<figcaption>Configuração do ODBC conector </figcaption>
+
+</center> 
+
+
+### Power BI
+- Após a conclusão do processo de instalação e configuração, podemos iniciar a análise dos dados diretamente no Power BI, utilizando a conexão estabelecida com o cluster do MongoDB.
+
+- Uma vez na tela inicla selecione obter os dados e pesquise por ODBC.
+
+<br>
+<center>
+
+![imagem 26](./Assets/pbi.png)
+<figcaption>Importando as bases de dados do cluster </figcaption>
+
+</center> 
+
+- Selecione o DSN configurado, e informe suas credenciais de acesso.
+
+<br>
+<center>
+
+![imagem 27](./Assets/pbi_credenciais.png)
+<figcaption>Credenciais de acesso </figcaption>
+
+</center> 
+
+- Selecione as colections necessarias e inicie a sua analise de dados!
+
+<br>
+<center>
+
+![imagem 28](./Assets/pbi_collections.png)
+<figcaption>Selecioando as collections </figcaption>
+
+</center> 
+
+
+### Dashboard
+
+- Por fim, com base nos dados carregados geramos o seguinte report: 
+
+<br>
+<center>
+
+![imagem 29](./Assets/dash.png)
+<figcaption>Relatório </figcaption>
+
+</center> 
+
+
 
 
