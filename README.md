@@ -847,7 +847,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 <center>
 
 ![imagem 29](./Assets/dash.png)
-<figcaption>Relatório </figcaption>
+<figcaption>Relatório final </figcaption>
 
 </center> 
 
