@@ -40,13 +40,11 @@ O MongoDB é um banco de dados NoSQL de código aberto, projetado para armazenar
 </center>
 
 
-### Dowload e instalação:
+### Dowload e instalação do MongoDB:
 
 O download pode ser feito atraves do site oficial do projeto, disponível em [mongodb.com](https://www.mongodb.com/try/download/community), onde será disponibilizada a instalaçao do MongoDB e Compass (interface grafica de gerenciamento e visualização de dados). 
 
 ### Criando o primeiro projeto no MongoDB Compass
-
-Para o desenvolvimento dessa atividade optou-se por gerenciar o projeto localmente. Para tando, seguimos os sequintes passos:
 
 <center>
 
@@ -54,6 +52,9 @@ Para o desenvolvimento dessa atividade optou-se por gerenciar o projeto localmen
 <figcaption>MongoDB Compass</figcaption>
 
 </center>
+<br>
+Para o desenvolvimento dessa atividade optou-se por gerenciar o projeto localmente. Para tando, seguimos os sequintes passos:
+
 
 ### Criando uma nova conexão 
 
@@ -74,7 +75,7 @@ Uma vez Criada a conexão Podemos criar a base de dados e as coleções:
 <br>
 </center>
 
-O proximo passo será importar a base dados “megasena2.csv” para iniciarmos a análise. 
+O proximo passo será importar a base dados “megasena2.csv”, fornecida pelo professor, para iniciarmos a análise. 
 <br>
 <center>
 
@@ -97,7 +98,7 @@ O proximo passo será importar a base dados “megasena2.csv” para iniciarmos 
 
 > Dessa forma, apresentou-se uma seria de erros na importação que não seram tratados nesse momento. 
 
-> Tela do MongDB shell
+### MongDB shell
 
 <center>
 
@@ -573,7 +574,7 @@ Os grafos são estruturas fundamentais no banco de dados Neo4j, onde podemos des
 
 ## Atividade 02
 ### Objetivo da atividade
-Realizar consultas no no Neo4j utilizando a linguagem Cypher
+Realizar consultas no no Neo4j utilizando a linguagem Cypher.
 
 ```
 Consulta Cypher para ver os itens da base de dados: 
@@ -606,14 +607,14 @@ ORDER BY FilmesJuntos DESC;
 ## Atividade 03
 A terceira atividade da disciplina **(Porjeto final)** consiste no desenvolvimento de uma aplicação de controle de salários para uma empresa fictícia (SerGestor), integrando tecnologias modernas para gestão e visualização de dados. 
 
-Para tal, será utilizando uma base de dados que armazenada em um banco de dados MongoDB para agerenciar as informações de forma estruturada e escalável, a aplicação opera de maneira online, permitindo acesso remoto e em tempo real. 
+Para tal, será utilizando uma base de dados armazenada em um banco de dados não relacional para gerenciar as informações de forma estruturada e escalável, a aplicação opera de maneira online, permitindo acesso remoto e em tempo real.
 
-Além disso, será implementada uma conexão com o Power Bi para possibilitou a criação de dashboards interativo e análises visuais detalhadas sobre a distribuição salarial, histórico de pagamentos e indicadores financeiros, tornando o sistema uma ferramenta eficiente para tomada de decisões estratégicas.
+Além disso, será implementada uma conexão com o Power Bi para possibilitar a criação de dashboards interativo e análises visuais detalhadas sobre a distribuição salarial, histórico de pagamentos e indicadores financeiros, tornando o sistema uma ferramenta eficiente para tomada de decisões estratégicas.
 
 ### Desenvolvimento da aplicação
 
 #### Crie uma conta no MongoDB Atlas
-   Inicialmente acesse https://www.mongodb.com/cloud/atlas e registre-se com seu e-mail ou com uma conta GitHub/Google.
+Inicialmente acesse https://www.mongodb.com/cloud/atlas e registre-se com seu e-mail ou com uma conta GitHub/Google.
 <br>
 <center>
 
@@ -623,9 +624,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 </center>
 
 #### Crie um novo projeto
-  - Após o login, clique em “New Project”.
-  - Dê um nome ao projeto 
-  - Click em Next
+Após realizar o login na plataforma, o próximo passo é iniciar a criação de um novo projeto. Para isso, clique no botão “New Project”, localizado na tela principal. Em seguida, será solicitado que você atribua um nome ao projeto. Após nomear o projeto, clique em “Next” para avançar para as próximas etapas de configuração.
 
 <br>
 <center>
@@ -635,8 +634,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center>
     
-  - Adicione membros (opcional).
-  - Click em Create Project
+Na etapa seguinte, temos a opção de adicionar membros ao projeto, permitindo colaboração com outros usuários. Ação é opcional e pode ser realizada posteriormente. Clique em “Create Project” para finalizar a criação e começar a trabalhar no projeto.
 
 <center>
 
@@ -646,7 +644,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 </center>
     
 #### Configure um cluster
-  - Dentro do projeto, clique em +Create para cirar um cluster.
+Dentro do projeto, clique em +Create para cirar um cluster.
 
 <br>
 <center>
@@ -656,21 +654,19 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center>
    
-  - Neste ponto do projeto, precisamos escolher o plano que melhor se adequa às nossas necessidades. Como se trata de uma atividade acadêmica, optaremos pelo plano gratuito (Free), que já oferece uma série de recursos e pode ser expandido posteriormente.
+Neste ponto do projeto, precisamos escolher o plano que melhor se adequa às nossas necessidades. Como se trata de uma atividade acadêmica, optaremos pelo plano gratuito (Free), que já oferece uma série de recursos e podem ser expandidos posteriormente.
 
 <br>
 <center>
 
 ![imagem 13](./Assets/deploy_cluster.png)
-<figcaption>Selecionando as o cluster para a aplicação</figcaption>
+<figcaption>Selecionando o tipo de cluster para a aplicação</figcaption>
 
 </center>
 
 #### Crie um usuário de banco de dados
-  - Vá em “Database Access” no menu lateral.
-  - Clique em “Add New Database User”.
-  - Defina um nome de usuário e senha.
-  - Escolha as permissões adequadas ("Read and write to any database").
+Para configurar o acesso ao banco de dados, acesse a opção “Database Access” localizada no menu lateral da plataforma. Em seguida, clique em “Add New Database User” para iniciar a criação de um novo usuário. Será necessário definir um nome de usuário e uma senha segura, garantindo a proteção das informações. Por fim, selecione as permissões apropriadas, optando por “Read and write to any database” para permitir que o usuário tenha acesso completo de leitura e escrita em todos os bancos de dados disponíveis (opcional).
+
 <br>
 <center>
 
@@ -678,22 +674,20 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 <figcaption>Criando o usuário</figcaption>
 
 </center>
-
     
 #### Configure o acesso à rede
-  - Vá em “Network Access”.
-  - Clique em “Add IP Address”.
-  - Adicione o IP do seu computador ou selecione “Allow access from anywhere” (0.0.0.0/0).
+Para liberar o acesso à sua instância, vá até a seção “Network Access” no menu lateral da plataforma. Em seguida, clique em “Add IP Address” para registrar um novo endereço de rede autorizado. Você pode inserir o IP do seu computador para garantir acesso restrito e seguro, ou, se preferir uma configuração mais ampla, selecionar a opção “Allow access from anywhere” (0.0.0.0/0), permitindo conexões de qualquer origem. Essa escolha deve ser feita com cautela, considerando os requisitos de segurança do seu projeto.
+
 <br>
 <center>
 
 ![imagem 15](./Assets/network_access.png)
-<figcaption>Configurando o acesso a usuarios </figcaption>
+<figcaption>Configurando o acesso aos usuários </figcaption>
 
 </center>
 
 #### Conecte-se ao cluster
-   - Selecione novamente Cluster no painel e clique em “Connect”.
+Selecione novamente Cluster no painel e clique em “Connect”.
 <br>
 <center>
 
@@ -702,8 +696,8 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
 
-   - Escolha o método de conexão: via MongoDB Compass, terminal ou aplicação. 
-   - Copie a string de conexão passando as credenciais de acesso
+Para conectar-se ao banco de dados, escolha o método que melhor se adapta ao seu ambiente de trabalho: MongoDB Compass para uma interface gráfica intuitiva, terminal para comandos diretos, ou integração via aplicação para uso em sistemas automatizados. Após selecionar a opção desejada, copie a string de conexão fornecida e insira suas credenciais de acesso — nome de usuário e senha — nos campos correspondentes. Essa string será essencial para estabelecer uma comunicação segura e funcional com o banco de dados.
+
 <br>
 <center>
 
@@ -712,7 +706,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
   
-  - Uma vez no MongoDB Compass crie uma nova conexão passando a URI
+Uma vez no MongoDB Compass crie uma nova conexão passando a URI
 
 <br>
 <center>
@@ -724,7 +718,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 
 #### Criando e gerenciando bancos e coleções
-- Uma vez criada a conexão com o serviço online podemos criar nosso banco de dados e inserir as coleções, para este exemplo iremos criar o DB Empresa e importar as coleções. 
+Uma vez criada a conexão com o serviço online podemos criar nosso banco de dados e inserir as coleções, para este exemplo iremos criar o DB Empresa e importar as coleções. 
 
 <br>
 <center>
@@ -734,7 +728,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
  
-- importanto os dados de Funcionarios, Montante, Pagamentos e Utilização da verba. 
+Importanto os dados de Funcionarios, Montante, Pagamentos e Utilização da verba. 
 
 <br>
 <center>
@@ -744,7 +738,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
 
-- Uma vez que nossas coleções são importadas elas ficaram disponiveis em nosso bucket na web
+Uma vez que nossas coleções são importadas elas ficaram disponiveis em nosso bucket na web.
 
 <br>
 <center>
@@ -757,11 +751,11 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 ### Integração com ferramentas de BI 
 
-- Para esta atividade, será realizada a integração entre o cluster do MongoDB e o Power BI utilizando o conector ODBC (Open Database Connectivity). Essa abordagem se faz necessária devido à limitação da versão gratuita do MongoDB Atlas, que não disponibiliza nativamente conectores compatíveis com ferramentas de Business Intelligence.
+Para esta atividade, será realizada a integração entre o cluster do MongoDB e o Power BI utilizando o conector ODBC (Open Database Connectivity). Essa abordagem se faz necessária devido à limitação da versão gratuita do MongoDB Atlas, que não disponibiliza nativamente conectores compatíveis com ferramentas de Business Intelligence.
 
 > Para proseguir com o porjeto certifique-se que estejam preparados o Database Acess e Network Acess.
 
-- Após as configurações podemos proseguir instalando as aplicações responsavéis por fazer a conexão entre os compontentes. Precisamos fazer as instalações do [Power BI Connector](https://www.mongodb.com/try/download/odbc-driver) e [ODBC Driver](https://www.mongodb.com/try/download/odbc-driver). 
+Após as configurações podemos proseguir instalando as aplicações responsavéis por fazer a conexão entre os compontentes. Instale as seguintes aplicações em sua maquina local [Power BI Connector](https://www.mongodb.com/try/download/odbc-driver) e [ODBC Driver](https://www.mongodb.com/try/download/odbc-driver). 
 
 - Inicialmente temos que criar a URI de conexão no cluster, para tanto basta acesssar o cluester do projeto e clicar em connect.
 
@@ -773,7 +767,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
 
-- Selecione ODBC Driver, escolha uma DB e copie a URL de conexão.
+Selecione ODBC Driver, escolha uma DB e copie a URL de conexão.
 
 <br>
 <center>
@@ -794,7 +788,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
 
-- Selecione System DSN e em seguida Add, selecione o conector "MongoDB Atlas SQL ODBC Driver" e passe suas credenciais de acesso.
+Selecione System DSN e em seguida Add, selecione o conector "MongoDB Atlas SQL ODBC Driver" e passe suas credenciais de acesso.
 
 <br>
 <center>
@@ -806,9 +800,9 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 
 ### Power BI
-- Após a conclusão do processo de instalação e configuração, podemos iniciar a análise dos dados diretamente no Power BI, utilizando a conexão estabelecida com o cluster do MongoDB.
+Após a conclusão do processo de instalação e configuração, podemos iniciar a análise dos dados diretamente no Power BI, utilizando a conexão estabelecida com o cluster do MongoDB.
 
-- Uma vez na tela inicla selecione obter os dados e pesquise por ODBC.
+Uma vez na tela inicial selecione obter os dados e pesquise por ODBC.
 
 <br>
 <center>
@@ -818,7 +812,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
 
-- Selecione o DSN configurado, e informe suas credenciais de acesso.
+Selecione o DSN configurado, e informe suas credenciais de acesso.
 
 <br>
 <center>
@@ -828,7 +822,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 </center> 
 
-- Selecione as colections necessarias e inicie a sua analise de dados!
+Selecione as colections necessarias e inicie a sua analise de dados!
 
 <br>
 <center>
@@ -841,7 +835,7 @@ Além disso, será implementada uma conexão com o Power Bi para possibilitou a 
 
 ### Dashboard
 
-- Por fim, com base nos dados carregados geramos o seguinte report: 
+Por fim, com base nos dados carregados, geramos o seguinte relatório, que tem como objetivo apoiar os tomadores de decisão na identificação de padrões, avaliação de desempenho e definição de estratégias mais assertivas. As visualizações apresentadas facilitam a interpretação das informações e contribuem para decisões mais embasadas e eficazes.
 
 <br>
 <center>
